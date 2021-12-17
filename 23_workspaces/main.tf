@@ -1,11 +1,11 @@
-provider "azurerm" {
+provider "aws" {
   features {}
 }
 terraform {
   required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "2.42.0"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "1.0.4"
     }
   }
 }
@@ -19,7 +19,7 @@ variable "resource_group_names" {
   }
 }
 
-resource "azurerm_resource_group" "rg" {
+resource "aws_resource_group" "rg" {
   name     = var.resource_group_names[terraform.workspace]
-  location = "westeurope"
+  # location = "westeurope"
 }
